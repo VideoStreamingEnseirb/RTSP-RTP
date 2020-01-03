@@ -13,3 +13,31 @@
     margin-top: 10px;
     margin-bottom:10px;
 }
+
+.img2{
+    max-width: 100%;
+    height:auto
+}
+.img{
+    max-width: 90%;
+    height:auto
+}
+.img3{
+    max-width: 95%;
+    margin-left: 5%;
+    height:auto
+}
+
+.flotte {
+    float:right;
+    }
+
+p {
+    text-align: justify;
+}
+
+.text {
+    margin-right: 50%;
+    text-align: justify;
+}
+}
