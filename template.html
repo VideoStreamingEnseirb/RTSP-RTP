@@ -28,27 +28,31 @@
                 <h1 class="card-title">RTSP/RTP</h1>
 
                    <p class="flotte">
-                        <img class="img" src="images/protocol_stack.png" alt="protocol">                   
+                        <img class="img" src="images/protocol_stack.png" alt="protocol">
                    </p>
                    <p class="text">
-                    <h4>Introductory paragraph including :
-                        official creator/owner of project (+link) 
-                        protocol history, evolution and current status 
-                        for what purpose ?</h4>
+                    <h4>What is RTSP/RTP ?</h4>
                     <p class="text">
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                   </p>
-                   <p class="text">
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                        RTSP and RTP are two protocols that function together to enable the streaming of media, audio or video.
+                    </p>
+                    <p class="text" >
+                      The first version of RTSP submitted to IETF was in 1996 and developed by RealNetworks, Netscape and Columbia University. Its standardization happened in 1998 published as RFC 2326 in 1998, and the second release was in 2016 as RFC 7826 in 2016.
+                      <br>
+                      RTSP is an application-level protocol that aims at controlling the streaming of a media. The media can be live-streamed or a stored media. The protocol enables to differentiate sessions of streaming, each session having its own parameters such as unicast or multicast for instance.
+                      It is also relevant to note that the ability to initialize multicast session of streaming make this protocol the principal choice for certain applications such as IP cameras or Television using the internet.
+                    </p>
+                   <p class="text"   style="margin-right: 0%;">
+                     RTP is a protocol that ensures the transportation of media data. It is based upon the use of UDP and provide no bitrate scalability of the streaming.
+                     The stream of data is enhanced by the use of a control protocol (RTCP) that monitors the data transmission. RTCP ensures the quality of service and may compensate for delays.
                    </p>
 
                     <br>
-                    
+
                     <hr>
                     <h4>Details on use cases/fields of application</h4>
                     <img class="img2" src="images/unimulti.png" alt="unimulti">
                     <p>
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </p>
 
                     <hr>
@@ -59,9 +63,9 @@
                        <p class="text">
                         <h5>Different phases of a communication :</h5>
                         <p class="text">
-                            <b>Describe :</b> This method constitute the initialization phase of RTSP. During this phase a pair of messages are exchanged. 
+                            <b>Describe :</b> This method constitutes the initialization phase of RTSP. During this phase a pair of messages are exchanged.
                             The first one is sent by the client and aims at demanding a retrieving of the desired media description. It contains the request URL of the media and may also contain an Accept header which specifies the description format the client can process.
-                            The second one contains the description itself. The response contains all the media initialization information. 
+                            The second one contains the description itself. The response contains all the media initialization information.
                             It is also important to note that, while a media initialization phase is required for any RTSP-based system, the use of the “Describe” method is not mandatory. Two other ways are possible. The first being the use of other protocol such as HTTP or email attachment. The second one being the use of command line or standard input.
                             <br>
                         </p>
@@ -77,19 +81,19 @@
                             The reply message is only sent in the case of on-demand streaming, it contains the range in the media that is going to be played.
                             <br>
                         </p>
-                        <p >  
+                        <p >
                             <b>RTP audio/video : </b>
                             <br>
                         </p>
-                        <p >  
+                        <p >
                             <b>Pause : </b>This method is used to temporarily interrupt the media stream. The stream can be resumed by sending a play request. Sending a play request without specifying a range to be played will resume the stream at the time it was paused.
                             The message sent by the client tells the server to stop the stream. It contains the session ID.
                             The message sent by the server is an acknowledgement of the pause and contains the date it was paused.
                             <br>
                         </p>
-                        <p >  
+                        <p >
                             <b>Teardown : </b>This request stops the streaming of the media and frees the session ID. the server responds “OK” to the request.
-                            
+
                             <p >
                         <b>RTCP (Real-time Transport Control Protocol)</b> works hand in hand with RTP. RTCP is used to send control packets. RTCP distinguishes several types of packets called reports: sender report, receiver report, source description, and goodbye. The primary function is to provide feedback on the quality of service being provided by RTP. It transports statistics and information such as octet and packet counts, packet loss, jitter, and round-trip time. It gives information to control QoS parameters.                       </p>
                     </p>
@@ -107,7 +111,7 @@
                         <h6>Disadvantages :</h6>
                         No more supported by browsers
                         <br>Require a specific streaming server
-                        
+
                     </p>
                     <br>
                     <hr>
@@ -138,14 +142,14 @@
             </div>
             <div class="card-body">
                 <h5 class="card-title">0. Prerequisites</h5>
-                <p class="card-text">-Server part deployment 
-                    -Player deployment 
-                    
-                    For each deployment :	
-                    pre-requisites 
-                    step-by-step	commands 
-                    images, if appropriate 
-                    
+                <p class="card-text">-Server part deployment
+                    -Player deployment
+
+                    For each deployment :
+                    pre-requisites
+                    step-by-step	commands
+                    images, if appropriate
+
                     Github	links
                     </p>
             </div>
