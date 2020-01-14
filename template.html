@@ -146,18 +146,52 @@
             <div class="card-header">
                 HowTo
             </div>
-            <div class="card-body">
+            <div class="card-body"> <h3>Version with VLC interface</h3>
                 <h5 class="card-title">0. Prerequisites</h5>
-                <p class="card-text">-Server part deployment
-                    -Player deployment
+                <p class="card-text">Install VLC via this link : <a href="https://www.videolan.org/vlc/index.fr.html"> Download VLC</a> <br>
+                    Make sure to have a MP4 video available in the current folder.
+                    <h5 class="card-title">1. Streaming in RTSP</h5>
 
-                    For each deployment :
-                    pre-requisites
-                    step-by-step	commands
-                    images, if appropriate
+                    Media > Stream  
+                    New window
+                    Add file
+                    Next
+                    Chose RTSP as new destination
+                    Chose the port (classicly 8554 and the path here stream) 
+                    Add
+                    Next
+                    Transcoding option
+                    Next 
+                    Stream
+                    Now you stream is available at : rtsp://localhost:8554/stream
+                    <h5 class="card-title">2. Watch your video in RTSP </h5>
+                    In another client VLC 
+                    To read your rtsp flow : Open a new stream
+                    Select the path  rtsp://localhost:8554/stream
 
-                    Github	links
+
+
                     </p>
+
+
+
+
+                    <hr>
+                    <h3>Command line version</h3>
+                    <h5 class="card-title">0. Prerequisites</h5>
+                    <p class="card-text">-Server part deployment
+                        -Player deployment
+    
+                        For each deployment :
+                        pre-requisites
+                        step-by-step	commands
+                        images, if appropriate
+    
+                        Github	links
+    
+    
+                        
+                        </p>
             </div>
         </div>
         <div class="card">
