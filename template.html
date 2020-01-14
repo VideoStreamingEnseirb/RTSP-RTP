@@ -75,16 +75,23 @@
                             The second one sent is the response from the server which contains the transport parameters selected by the server and a session ID that is then going to be used by the client.
                             <br>
                         </p>
-                        <p class="text">
+                        <p >
                            <b>Play :</b> This method tells the server to starts sending data using the parameters decided by the SETUP method.
                             The first message is a play request which contains the range of the media that is going to be played. It may also contain a time parameter, which is going to be the date the playback is started.
                             The reply message is only sent in the case of on-demand streaming, it contains the range in the media that is going to be played.
                             <br>
                         </p>
-                        <p >
-                            <b>RTP audio/video : </b>
+                        <p>
+                            <b>RTP audio/video : </b> The RTP audio/video is not a method like Play,Pause,etc... but it defines the beginning of the media stream.
+      Number of media streams in an RTSP session varies depending on situations as described below :
+     <br> Case 1 : In a situation where audio codec is disabled and a video stream is requested:
+       Each RTSP session delivers just one video stream instances at a time.
+      <br>Case 2 : In a situation where audio codec is enabled and an audio stream is requested:
+       Each RTSP session delivers just one audio stream at a time.
+      <br>Case 3 : In a situation where audio codec is enabled and just a video stream is requested:
+       Each RTSP session delivers two media streams at a time — not only a video stream but also an audio stream.
                             <br>
-                        </p>
+</p>
                         <p >
                             <b>Pause : </b>This method is used to temporarily interrupt the media stream. The stream can be resumed by sending a play request. Sending a play request without specifying a range to be played will resume the stream at the time it was paused.
                             The message sent by the client tells the server to stop the stream. It contains the session ID.
