@@ -152,10 +152,19 @@
                                   <hr>
                 <h4 class="card-title">Prerequisites</h4>
 
-                <p class="card-text">Install VLC via this link : <a href="https://www.videolan.org/vlc/index.fr.html"> Download VLC</a> <br>
-                    Make sure to have a MP4 video available in the current folder.
-
-
+                <h5> <u> Version with VLC interface </u> </h5>
+                <p class="card-text">1 - Install VLC via this link : <a href="https://www.videolan.org/vlc/index.fr.html"> Download VLC</a> <br>
+                    2 - Make sure that you have a MP4 video available in the current folder.
+                </p>
+                <h5> <u> Command line version </u> </h5>
+                <p class="card-text"> 1 - Use a Linux distribution <br>
+                  2 - Install ffmpeg on your computer using the following command lines in your terminal : <br>
+                  <code>sudo apt-get update <br>
+                        sudo apt-get install ffmpeg
+                  </code>
+                  <br>
+                  3 - Make sure to have that you MP4 video available in the terminal folder.
+                </p>
                                         <hr>
                     <h4 class="card-title"> Deployment </h4>
 
@@ -182,11 +191,26 @@
                     In another client VLC
                     To read your rtsp flow : Open a new stream
                     Select the path  rtsp://localhost:8554/stream
-                    </p>
+
 
                     <h5> <u> Command line version </u> </h5>
+                    <p class="card-text">
                     <h6 class="card-title">1. Streaming in RTSP (server)</h6>
+                    1 - Open a terminal. <br>
+                    2 - Go to the folder where your video is stored.  <br>
+                    3 - Convert your video in a RTSP stream using the following command :  <br>
+                    <code>
+                      vlc -vvv test.mp4 --sout '#rtp{sdp=rtsp://127.0.0.1:8554/stream}'
+                      '#transcode{vcodec=h264,acodec=mpga,ab=128,channels=2,samplerate=44100,scodec=none}' no-sout-all sout-keep
+                      --loop
+                    </code>
+<br><br>
                     <h6 class="card-title">2. Watch your video in RTSP (client) </h6>
+                    4 - In another terminal, read the stream on ffplay with this command : <br>
+                    <code>
+                    ffplay -v debug -ii rtsp://127.0.0.1:8554/stream
+                  </code>
+                    </p>
                     <p class="card-text">-Server part deployment
                         -Player deployment
 
