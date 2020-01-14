@@ -152,19 +152,10 @@
                                   <hr>
                 <h4 class="card-title">Prerequisites</h4>
 
-                <h5> <u> Version with VLC interface </u> </h5>
-                <p class="card-text">1 - Install VLC via this link : <a href="https://www.videolan.org/vlc/index.fr.html"> Download VLC</a> <br>
-                    2 - Make sure that you have a MP4 video available in the current folder.
-                </p>
-                <h5> <u> Command line version </u> </h5>
-                <p class="card-text"> 1 - Use a Linux distribution <br>
-                  2 - Install ffmpeg on your computer using the following command lines in your terminal : <br>
-                  <code>sudo apt-get update <br>
-                        sudo apt-get install ffmpeg
-                  </code>
-                  <br>
-                  3 - Make sure to have that you MP4 video available in the terminal folder.
-                </p>
+                <p class="card-text">Install VLC via this link : <a href="https://www.videolan.org/vlc/index.fr.html"> Download VLC</a> <br>
+                    Make sure to have a MP4 video available in the current folder.
+
+
                                         <hr>
                     <h4 class="card-title"> Deployment </h4>
 
@@ -175,42 +166,49 @@
 
 
                     <h6 class="card-title">1. Streaming in RTSP (server)</h6>
-                    Media > Stream
-                    New window
-                    Add file
-                    Next
-                    Chose RTSP as new destination
-                    Chose the port (classicly 8554 and the path here stream)
-                    Add
-                    Next
-                    Transcoding option
-                    Next
-                    Stream
-                    Now you stream is available at : rtsp://localhost:8554/stream
-                    <h6 class="card-title">2. Watch your video in RTSP (client) </h6>
-                    In another client VLC
-                    To read your rtsp flow : Open a new stream
-                    Select the path  rtsp://localhost:8554/stream
 
+                    Open VLC.
+                    <br>
+                    Select <b>Media</b> then <b>Stream</b>. This window should appear : 
+                    <br><img class="imgdemo" src="images/demo1.png" alt="demo">
+                    <br>Select <b>+ Add</b> and select the file you want to stream. The example will be done with an MP4 file.
+                    <br> Then select <b>Stream</b>. 
+                    <br>
+                    <br>The following window should appear:
+                    <br><img class="imgdemo" src="images/demo2.png" alt="demo">
+                    <br>Select <b>Next</b>.
+                    <br>
+
+                    <br> Then, on this window chose as <b>New destination</b> RTSP :
+                    <br><img class="imgdemo" src="images/demo3.png" alt="demo">
+                    <br>
+                    <br> You will now have to select the port and the path. 
+                    <br> You can chose the 8554 (classic port fort RTSP).
+                    <br> As path, you can add /stream as shown below :
+                    <br><img class="imgdemo" src="images/demo4.png" alt="demo">
+                    <br>
+                    <br>Then chose the transcoding option. 
+                    <br>Here for MP4, this is the H.264 codec for the video part and MP3 for the audio part.
+                    <br><img class="imgdemo" src="images/demo5.png" alt="demo">
+                    <br>
+                    <br>Now you stream is available at : <i>rtsp://localhost:8554/stream</i>
+                    <br>
+                    <br>
+                    <h6 class="card-title">2. Watch your video in RTSP (client) </h6>
+                    Open another VLC client.
+                    <br>
+                    To read your rtsp stream : Open a new stream.
+                    <br>
+                    Select the path  rtsp://localhost:8554/stream.
+                    <br>
+                    <img class="imgdemo" src="images/demo6.png" alt="demo">
+                    </p>
+                    Now the video should be watchable.
+                    <br>
 
                     <h5> <u> Command line version </u> </h5>
-                    <p class="card-text">
                     <h6 class="card-title">1. Streaming in RTSP (server)</h6>
-                    1 - Open a terminal. <br>
-                    2 - Go to the folder where your video is stored.  <br>
-                    3 - Convert your video in a RTSP stream using the following command :  <br>
-                    <code>
-                      vlc -vvv test.mp4 --sout '#rtp{sdp=rtsp://127.0.0.1:8554/stream}'
-                      '#transcode{vcodec=h264,acodec=mpga,ab=128,channels=2,samplerate=44100,scodec=none}' no-sout-all sout-keep
-                      --loop
-                    </code>
-<br><br>
                     <h6 class="card-title">2. Watch your video in RTSP (client) </h6>
-                    4 - In another terminal, read the stream on ffplay with this command : <br>
-                    <code>
-                    ffplay -v debug -ii rtsp://127.0.0.1:8554/stream
-                  </code>
-                    </p>
                     <p class="card-text">-Server part deployment
                         -Player deployment
 
