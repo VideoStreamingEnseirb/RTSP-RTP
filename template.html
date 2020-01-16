@@ -237,13 +237,19 @@
                     <h6 class="card-title">1. Streaming in RTSP (server)</h6>
                     1 - Open a terminal. <br>
                     2 - Go to the folder where your video is stored.  <br>
-                    3 - Convert your video in a RTSP stream using the following command :  <br>
+                    3 - Convert your video into a unicast RTSP stream using the following command :  <br>
                     <code>
                       vlc -vvv test.mp4 --sout '#rtp{sdp=rtsp://127.0.0.1:8554/stream}'
                       '#transcode{vcodec=h264,acodec=mpga,ab=128,channels=2,samplerate=44100,scodec=none}' no-sout-all sout-keep
                       --loop
+                    </code> <br>
+                    3 bis - If you want to convert your video into a multicast stream use this command instead :  <br>
+                    <code>
+                        vlc -vvv test.mp4 --sout '#rtp{dst=230.0.100.10,port=31300,sdp=rtsp://127.0.0.1:8554/stream}'
+                        '#transcode{vcodec=h264,acodec=mpga,ab=128,channels=2,samplerate=44100,scodec=none}' no-sout-all sout-keep --rtsp-mcast
+                        --loop
                     </code>
-<br><br>
+                <br><br>
                     <h6 class="card-title">2. Watch your video in RTSP (client) </h6>
                     4 - In another terminal, read the stream on ffplay with this command : <br>
                     <code>
